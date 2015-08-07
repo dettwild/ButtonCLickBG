@@ -84,14 +84,14 @@ namespace ButtonCLickBG
             //Debug.WriteLine("Event handler detected ButtonPin Change : " + myevent.Edge);
             if (myevent.Edge == GpioPinEdge.RisingEdge) //RisingEdge)
             {
-                Debug.WriteLine("Event handler detected RISING Edge");
+                //Debug.WriteLine("Event handler detected RISING Edge");
                 ledPinVal = (ledPinVal == GpioPinValue.Low) ?
                     GpioPinValue.High : GpioPinValue.Low;
                 ledPin.Write(ledPinVal);
             }
             else
             {
-                Debug.WriteLine("Event handler detected FALLING Edge");
+                //Debug.WriteLine("Event handler detected FALLING Edge");
             }
             
         }
