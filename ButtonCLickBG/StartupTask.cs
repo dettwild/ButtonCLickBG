@@ -27,7 +27,7 @@ namespace ButtonCLickBG
             //
             mydeferral = taskInstance.GetDeferral();   //prevents program from Exiting after one run
             InitGPIO();
-            mytimer = ThreadPoolTimer.CreatePeriodicTimer(Timer_Tick, TimeSpan.FromMilliseconds(20));
+            mytimer = ThreadPoolTimer.CreatePeriodicTimer(Timer_Tick, TimeSpan.FromMilliseconds(200));
 
         }
 
@@ -68,16 +68,16 @@ namespace ButtonCLickBG
 
         private void Timer_Tick(ThreadPoolTimer mytimer)
         {
-            buttonPinValCurrent = buttonPin.Read();
+            //buttonPinValCurrent = buttonPin.Read();
             //Debug.WriteLine("ButtonPin Current Val = " + buttonPinValCurrent + ",      with prior value = " + buttonPinValPrior);
-            if (buttonPinValCurrent == GpioPinValue.High && buttonPinValPrior == GpioPinValue.Low)    // that is a Rising edge, meaning button was Pressed in current setup 
-            {
+            //if (buttonPinValCurrent == GpioPinValue.High && buttonPinValPrior == GpioPinValue.Low)    // that is a Rising edge, meaning button was Pressed in current setup 
+            //{
                 //Debug.WriteLine("ButtonPin Current Val = " + buttonPinValCurrent + ",      with prior value = " + buttonPinValPrior);
                 /*ledPinVal = (ledPinVal == GpioPinValue.Low) ?
                     GpioPinValue.High : GpioPinValue.Low;
                 ledPin.Write(ledPinVal);*/
-            }
-            buttonPinValPrior = buttonPinValCurrent;
+            //}
+            //buttonPinValPrior = buttonPinValCurrent;
         }
         private void buttonPressAction(GpioPin mycallerPin, GpioPinValueChangedEventArgs myevent)
         {
