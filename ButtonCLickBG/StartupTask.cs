@@ -73,9 +73,9 @@ namespace ButtonCLickBG
             if (buttonPinValCurrent == GpioPinValue.High && buttonPinValPrior == GpioPinValue.Low)    // that is a Rising edge, meaning button was Pressed in current setup 
             {
                 //Debug.WriteLine("ButtonPin Current Val = " + buttonPinValCurrent + ",      with prior value = " + buttonPinValPrior);
-                ledPinVal = (ledPinVal == GpioPinValue.Low) ?
+                /*ledPinVal = (ledPinVal == GpioPinValue.Low) ?
                     GpioPinValue.High : GpioPinValue.Low;
-                ledPin.Write(ledPinVal);
+                ledPin.Write(ledPinVal);*/
             }
             buttonPinValPrior = buttonPinValCurrent;
         }
@@ -85,9 +85,9 @@ namespace ButtonCLickBG
             if (myevent.Edge == GpioPinEdge.RisingEdge) //RisingEdge)
             {
                 Debug.WriteLine("Event handler detected RISING Edge");
-                /* ledPinVal = (ledPinVal == GpioPinValue.Low) ?
+                ledPinVal = (ledPinVal == GpioPinValue.Low) ?
                     GpioPinValue.High : GpioPinValue.Low;
-                ledPin.Write(ledPinVal); */
+                ledPin.Write(ledPinVal);
             }
             else
             {
