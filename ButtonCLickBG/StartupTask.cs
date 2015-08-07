@@ -27,7 +27,7 @@ namespace ButtonCLickBG
             //
             mydeferral = taskInstance.GetDeferral();   //prevents program from Exiting after one run
             InitGPIO();
-            mytimer = ThreadPoolTimer.CreatePeriodicTimer(Timer_Tick, TimeSpan.FromMilliseconds(200));
+            //mytimer = ThreadPoolTimer.CreatePeriodicTimer(Timer_Tick, TimeSpan.FromMilliseconds(200));
 
         }
 
@@ -48,11 +48,11 @@ namespace ButtonCLickBG
             
 
             buttonPin = mygpio.OpenPin(BUTTONPINNBR);
-            buttonPin.Write(GpioPinValue.High);
-            buttonPin.SetDriveMode(GpioPinDriveMode.Output);
-            buttonPinValCurrent = buttonPin.Read();
+            //buttonPin.Write(GpioPinValue.High);
+            //buttonPin.SetDriveMode(GpioPinDriveMode.Output);
+            //buttonPinValCurrent = buttonPin.Read();
             buttonPin.SetDriveMode(GpioPinDriveMode.Input);
-            buttonPinValPrior = GpioPinValue.High;
+            //buttonPinValPrior = GpioPinValue.High;
             
             Debug.WriteLine("ButtonPin Value at Init: " + buttonPin.Read() + ",      with Pin ID = " + buttonPin.PinNumber);
 
