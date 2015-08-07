@@ -27,7 +27,7 @@ namespace ButtonCLickBG
             //
             mydeferral = taskInstance.GetDeferral();   //prevents program from Exiting after one run
             InitGPIO();
-            mytimer = ThreadPoolTimer.CreatePeriodicTimer(Timer_Tick, TimeSpan.FromMilliseconds(50));
+            mytimer = ThreadPoolTimer.CreatePeriodicTimer(Timer_Tick, TimeSpan.FromMilliseconds(20));
 
         }
 
@@ -72,7 +72,7 @@ namespace ButtonCLickBG
             //Debug.WriteLine("ButtonPin Current Val = " + buttonPinValCurrent + ",      with prior value = " + buttonPinValPrior);
             if (buttonPinValCurrent == GpioPinValue.High && buttonPinValPrior == GpioPinValue.Low)    // that is a Rising edge, meaning button was Pressed in current setup 
             {
-                Debug.WriteLine("ButtonPin Current Val = " + buttonPinValCurrent + ",      with prior value = " + buttonPinValPrior);
+                //Debug.WriteLine("ButtonPin Current Val = " + buttonPinValCurrent + ",      with prior value = " + buttonPinValPrior);
                 ledPinVal = (ledPinVal == GpioPinValue.Low) ?
                     GpioPinValue.High : GpioPinValue.Low;
                 ledPin.Write(ledPinVal);
@@ -81,7 +81,7 @@ namespace ButtonCLickBG
         }
         private void buttonPressAction(GpioPin mycallerPin, GpioPinValueChangedEventArgs myevent)
         {
-            Debug.WriteLine("Event handler detected ButtonPin Change : " + myevent.Edge);
+            //Debug.WriteLine("Event handler detected ButtonPin Change : " + myevent.Edge);
             if (myevent.Edge == GpioPinEdge.RisingEdge) //RisingEdge)
             {
                 Debug.WriteLine("Event handler detected RISING Edge");
